@@ -1,0 +1,36 @@
+//c++
+
+class Solution {
+public:
+    int countCharacters(vector<string>& words, string chars) {
+        
+
+        // for(int i=0;i<words.size();i++){
+        //     for(int j=0;j<)
+        // }
+        int ans=0;
+
+        sort(chars.begin(),chars.end());
+        for(auto it:words){
+            sort(it.begin(),it.end());
+            int i=0,j=0;
+            while(i<it.length() && j<chars.length()){
+                if(it[i]==chars[j]){
+                    i++;
+                    j++;
+                }
+                else{
+                    j++;
+                }
+            }
+            if(i==it.length()){
+                ans+=it.length();
+            }
+
+        }
+        return ans;
+
+
+        
+    }
+};
