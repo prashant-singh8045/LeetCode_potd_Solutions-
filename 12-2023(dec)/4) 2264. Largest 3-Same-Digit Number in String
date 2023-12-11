@@ -1,0 +1,23 @@
+//c++
+
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        string str="";
+        int ans=-1;
+
+
+        for(int i=0;i<num.size();i++){
+            if(num[i]==num[i+1] && num[i]==num[i+2]){
+                string sub = num.substr(i,3);
+                int cur = stoi(sub);
+                if(cur > ans){
+                    ans=cur;
+                    str=sub;
+                }
+            }
+        }
+        return str;
+        
+    }
+};
