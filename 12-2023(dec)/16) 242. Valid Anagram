@@ -1,0 +1,20 @@
+//c++
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(),s.end());
+        sort(t.begin(),t.end());
+        return s==t;
+    }
+};
+
+
+//python3
+
+class Solution:
+    def isAnagram(self, a, b):
+        if sorted(a) == sorted(b):
+            return True
+        else:
+            return False    
