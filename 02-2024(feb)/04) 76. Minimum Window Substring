@@ -1,0 +1,34 @@
+//c++
+
+class Solution {
+public:
+    string minWindow(string s, string t) {
+         if(t.size() > s.size()) return "";
+
+        unordered_map<char, int> mp;
+        for(auto &i : t) mp[i]++;
+
+        string ans = "";
+        int i = 0, j = 0, cnt = mp.size();
+
+        while(j < s.size()){
+            if(mp.find(s[j]) != mp.end()){
+                mp[s[j]]--;
+                if(mp[s[j]] == 0) cnt--; 
+            }
+            j++;
+
+            while(cnt == 0){
+                if(mp.find(s[i]) != mp.end()){
+                    mp[s[i]]++;
+                    if(mp[s[i]] == 1) cnt++;
+                }
+
+                if(cnt == 1 && (ans == "" || ans.size() > j - i)) ans = s.substr(i, j-i); 
+                i++;
+            }
+        }
+
+        return ans;
+    }
+};
