@@ -1,0 +1,26 @@
+//c++
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        vector<pair<int,char>> v;
+        map<char,int> mp;
+        for(int i=0;i<s.size();i++){
+            mp[s[i]]++;
+        }
+        for(auto x:mp){
+            v.push_back({x.second,x.first});
+            
+        }
+        sort(v.rbegin(),v.rend());
+
+        string ans;
+
+        for(auto x:v){
+            for(int j=0;j<x.first;j++){
+                ans+=x.second;
+            }
+        }
+        return ans;
+    }
+};
